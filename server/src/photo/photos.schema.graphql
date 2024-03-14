@@ -1,0 +1,35 @@
+type Photo {
+    id: ID!
+    albumId: String
+    title: String
+    url: String
+    thumbnailUrl: String
+}
+
+type Query {
+    photos: [Photo]
+    photo(id: ID!): Photo
+    photosByAlbumId(albumId: String): [Photo]
+}
+
+input createPhotoInput {
+    id: ID!
+    albumId: String
+    title: String
+    url: String
+    thumbnailUrl: String
+}
+
+input updatePhotoInput {
+    id: ID!
+    albumId: String
+    title: String
+    url: String
+    thumbnailUrl: String
+}
+
+type Mutation {
+    createPhoto(photo: createPhotoInput!): Photo
+    updatePhoto(photo: updatePhotoInput!): Photo
+    deletePhoto(id: ID!): [Photo]
+}

@@ -2,6 +2,9 @@ type User {
     id: ID!
     name: String
     username: String
+    posts: [Post!]
+    todos: [Todo!]
+    albums: [Album!]
 }
 
 type Query {

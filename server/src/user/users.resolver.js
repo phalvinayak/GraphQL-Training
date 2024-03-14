@@ -21,10 +21,11 @@ const usersResolver = {
 
         updateUser: (_, { user }) => {
             const index = users.findIndex((u) => u.id === user.id);
-            if (index) {
+            if (index >= 0) {
                 users[index] = { ...users[index], ...user };
+                return users[index];
             }
-            return users[index];
+            throw new Error('User does not exist');
         },
 
         deleteUser: (_, { id }) => {

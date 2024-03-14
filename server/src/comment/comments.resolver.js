@@ -9,6 +9,12 @@ const usersResolver = {
         comment: (_, { id }) => comments.find((comment) => comment.id == id),
     },
 
+    Post: {
+        comments(post) {
+            return comments.filter((comment) => comment.postId === post.id);
+        },
+    },
+
     // Resolvers for Mutations
     Mutation: {
         createComment: (_, { comment }) => {
@@ -19,10 +25,11 @@ const usersResolver = {
 
         updateComment: (_, { comment }) => {
             const index = comments.findIndex((c) => c.id === comment.id);
-            if (index) {
+            if (index >= 0) {
                 comments[index] = { ...comments[index], ...comment };
+                return comments[index];
             }
-            return comments[index];
+            throw new Error('Comment does not exist');
         },
 
         deleteComment: (_, { id }) => {

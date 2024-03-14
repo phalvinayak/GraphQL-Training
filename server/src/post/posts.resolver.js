@@ -9,6 +9,13 @@ const postsResolver = {
         post: (parent, { id }, context) => posts.find((post) => post.id === id),
     },
 
+    User: {
+        posts(user) {
+            console.log('....userId :' + user.id);
+            return posts.filter((post) => post.userId === user.id);
+        },
+    },
+
     // Resolvers for Mutations
     Mutation: {
         createPost: (_, { post }) => {
@@ -18,10 +25,11 @@ const postsResolver = {
 
         updatePost: (_, { post }) => {
             const index = posts.findIndex((p) => p.id === post.id);
-            if (index) {
+            if (index >= 0) {
                 posts[index] = { ...posts[index], ...post };
+                return posts[index];
             }
-            return posts[index];
+            throw new Error('Post does not exist');
         },
 
         deletePost: (_, { id }) => {
