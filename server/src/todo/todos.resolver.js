@@ -6,9 +6,9 @@ const todosResolver = {
     // Resolvers for Queries
     Query: {
         todos: () => todos,
-        todo: (_, { id }) => todos.find((todo) => todo.id == id),
+        todo: (_, { id }) => todos.find((todo) => todo.id === id),
         todosByUserId: (_, { userId }) =>
-            todos.filter((todo) => todo.userId == userId),
+            todos.filter((todo) => todo.userId === userId),
     },
 
     User: {

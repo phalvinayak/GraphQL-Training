@@ -6,9 +6,9 @@ const albumsResolver = {
     // Resolvers for Queries
     Query: {
         albums: () => albums,
-        album: (_, { id }) => albums.find((album) => album.id == id),
+        album: (_, { id }) => albums.find((album) => album.id === id),
         albumsByUserId: (_, { userId }) =>
-            albums.filter((album) => album.userId == userId),
+            albums.filter((album) => album.userId === userId),
     },
 
     User: {

@@ -9,6 +9,7 @@ type Post {
 type Query {
     posts: [Post]
     post(id: ID!): Post
+    postByUserId(userId: String): [Post]
 }
 
 input createPostInput {

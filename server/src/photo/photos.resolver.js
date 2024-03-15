@@ -6,9 +6,9 @@ const photosResolver = {
     // Resolvers for Queries
     Query: {
         photos: () => photos,
-        photo: (_, { id }) => photos.find((photo) => photo.id == id),
+        photo: (_, { id }) => photos.find((photo) => photo.id === id),
         photosByAlbumId: (_, { userId: albumId }) =>
-            photos.filter((photo) => photo.albumId == albumId),
+            photos.filter((photo) => photo.albumId === albumId),
     },
 
     Album: {

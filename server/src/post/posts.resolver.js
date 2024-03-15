@@ -7,6 +7,8 @@ const postsResolver = {
     Query: {
         posts: () => posts,
         post: (parent, { id }, context) => posts.find((post) => post.id === id),
+        postByUserId: (_, { userId }) =>
+            posts.filter((post) => post.userId === userId),
     },
 
     User: {
