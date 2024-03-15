@@ -9,6 +9,7 @@ type Comment {
 type Query {
     comments: [Comment]
     comment(id: ID!): Comment
+    commentsByPostId(postId: String): [Comment]
 }
 
 input createCommentInput {

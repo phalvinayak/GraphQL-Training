@@ -7,6 +7,8 @@ const usersResolver = {
     Query: {
         comments: () => comments,
         comment: (_, { id }) => comments.find((comment) => comment.id == id),
+        commentsByPostId: (_, { postId }) =>
+            comments.filter((comment) => comment.postId === postId),
     },
 
     Post: {

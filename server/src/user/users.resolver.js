@@ -9,7 +9,7 @@ const usersResolver = {
         welcome: () => 'Welcome GraphQL world!👋',
         hello: () => 'Hello GraphQL world!👋',
         users: () => users,
-        user: (_, { id }) => users.find((user) => user.id == id),
+        user: (_, { id }) => users.find((user) => user.id === id),
     },
 
     // Resolvers for Mutations
