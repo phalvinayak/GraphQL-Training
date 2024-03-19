@@ -65,7 +65,7 @@ mutation DeletePost($deletePostId: ID!) {
     }
 }
 
-query AllCommnets {
+query AllComments {
   comments {
     id
     name

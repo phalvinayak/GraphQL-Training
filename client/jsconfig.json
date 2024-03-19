@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@src/*": ["./src/*"],
+            "@graphQuery/*": ["./src/application/graph-query/*"],
+            "@pages/*": ["./src/presentation/pages/*"],
+            "@library/*": ["./src/presentation/common/library/*"],
+            "@assets/*": ["./src/assets/*"],
+            "@components/*": ["./src/presentation/common/components/*"]
+        }
+    }
+}
