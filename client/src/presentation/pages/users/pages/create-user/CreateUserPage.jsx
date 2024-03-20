@@ -2,8 +2,8 @@ import UxBackLink from '@src/presentation/common/components/ux-back-link/UxBackL
 import UserForm from '@pages/users/components/user-form/UserForm';
 import { useCallback, useMemo } from 'react';
 import { useMutation } from '@apollo/client';
-import { CREATE_USER } from '@src/application/graph-query/mutations/user.mutations';
-import { GET_USERS } from '@src/application/graph-query/queries/user.queries';
+import { CREATE_USER } from '@graphQuery/mutations/user.mutations';
+import { GET_USERS } from '@graphQuery/queries/user.queries';
 import ApiError from '@src/presentation/common/components/api-error/ApiError';
 
 function CreateUserPage() {

@@ -1,0 +1,14 @@
+type Query {
+    foo: String!
+}
+type Mutation {
+    scheduleOperation(name: String!): String!
+}
+type Subscription {
+    operationFinished: Operation!
+}
+
+type Operation {
+    name: String!
+    endDate: String!
+}

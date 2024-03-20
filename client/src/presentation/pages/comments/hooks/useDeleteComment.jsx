@@ -1,8 +1,8 @@
 import { useMutation } from '@apollo/client';
 import usePopup from '@library/ux-popup/hooks/usePopup';
 import { useCallback } from 'react';
-import { DELETE_COMMENT } from '@src/application/graph-query/mutations/comment.mutations';
-import { GET_COMMENTS } from '@src/application/graph-query/queries/comment.queries';
+import { DELETE_COMMENT } from '@graphQuery/mutations/comment.mutations';
+import { GET_COMMENTS } from '@graphQuery/queries/comment.queries';
 
 function useDeleteComment({ id, onDelete }) {
     const { openPopup, closePopup } = usePopup();

@@ -2,8 +2,8 @@ import UxBackLink from '@src/presentation/common/components/ux-back-link/UxBackL
 import { useCallback, useMemo } from 'react';
 import { useMutation } from '@apollo/client';
 import ApiError from '@src/presentation/common/components/api-error/ApiError';
-import { CREATE_TODO } from '@src/application/graph-query/mutations/todo.mutations';
-import { GET_TODOS } from '@src/application/graph-query/queries/todo.queries';
+import { CREATE_TODO } from '@graphQuery/mutations/todo.mutations';
+import { GET_TODOS } from '@graphQuery/queries/todo.queries';
 import TodoForm from '@pages/todos/components/todo-form/TodoForm';
 
 function CreateTodoPage() {

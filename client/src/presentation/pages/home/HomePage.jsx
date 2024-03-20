@@ -5,6 +5,7 @@ import {
     AbsolutePostRoutes,
     AbsoluteTodoRoutes,
     AbsoluteUserRoutes,
+    AbsoluteCommonRoutes,
 } from '@src/presentation/router/routes.constant';
 import { Link } from 'react-router-dom';
 
@@ -37,6 +38,11 @@ function HomePage() {
                 </li>
                 <li>
                     <Link to={AbsolutePhotoRoutes.Photos}>Photos</Link>
+                </li>
+                <li>
+                    <Link to={AbsoluteCommonRoutes.Subscription}>
+                        Subscription
+                    </Link>
                 </li>
             </ul>
             <hr className="my-4" />

@@ -3,11 +3,8 @@ import { useCallback, useMemo } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import ApiError from '@components/api-error/ApiError';
-import {
-    GET_POST,
-    GET_POSTS,
-} from '@src/application/graph-query/queries/post.queries';
-import { UPDATE_POST } from '@src/application/graph-query/mutations/post.mutations';
+import { GET_POST, GET_POSTS } from '@graphQuery/queries/post.queries';
+import { UPDATE_POST } from '@graphQuery/mutations/post.mutations';
 import PostForm from '@src/presentation/pages/posts/components/post-form/PostForm';
 
 function UpdatePostPage() {

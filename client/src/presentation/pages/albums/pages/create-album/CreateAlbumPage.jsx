@@ -2,8 +2,8 @@ import UxBackLink from '@src/presentation/common/components/ux-back-link/UxBackL
 import { useCallback, useMemo } from 'react';
 import { useMutation } from '@apollo/client';
 import ApiError from '@src/presentation/common/components/api-error/ApiError';
-import { CREATE_ALBUM } from '@src/application/graph-query/mutations/album.mutations';
-import { GET_ALBUMS } from '@src/application/graph-query/queries/album.queries';
+import { CREATE_ALBUM } from '@graphQuery/mutations/album.mutations';
+import { GET_ALBUMS } from '@graphQuery/queries/album.queries';
 import AlbumForm from '@pages/albums/components/album-form/AlbumForm';
 
 function CreateAlbumPage() {

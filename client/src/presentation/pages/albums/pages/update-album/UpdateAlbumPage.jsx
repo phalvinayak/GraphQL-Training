@@ -3,12 +3,9 @@ import { useCallback, useMemo } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import ApiError from '@components/api-error/ApiError';
-import {
-    GET_ALBUM,
-    GET_ALBUMS,
-} from '@src/application/graph-query/queries/album.queries';
+import { GET_ALBUM, GET_ALBUMS } from '@graphQuery/queries/album.queries';
 import AlbumForm from '@pages/albums/components/album-form/AlbumForm';
-import { UPDATE_ALBUM } from '@src/application/graph-query/mutations/album.mutations';
+import { UPDATE_ALBUM } from '@graphQuery/mutations/album.mutations';
 
 function UpdateAlbumPage() {
     const { id } = useParams();

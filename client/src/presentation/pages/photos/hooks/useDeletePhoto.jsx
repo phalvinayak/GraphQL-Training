@@ -1,8 +1,8 @@
 import { useMutation } from '@apollo/client';
 import usePopup from '@library/ux-popup/hooks/usePopup';
 import { useCallback } from 'react';
-import { DELETE_PHOTO } from '@src/application/graph-query/mutations/photo.mutations';
-import { GET_PHOTOS } from '@src/application/graph-query/queries/photo.queries';
+import { DELETE_PHOTO } from '@graphQuery/mutations/photo.mutations';
+import { GET_PHOTOS } from '@graphQuery/queries/photo.queries';
 
 function useDeletePhoto({ id, onDelete }) {
     const { openPopup, closePopup } = usePopup();

@@ -4,7 +4,7 @@ import TableLoader from '@components/table-loader/TableLoader';
 import ApiError from '@components/api-error/ApiError';
 import { AbsolutePhotoRoutes } from '@src/presentation/router/routes.constant';
 import PhotoList from '@pages/photos/components/photo-list/PhotoList';
-import { GET_PHOTOS_BY_ALBUM_ID } from '@src/application/graph-query/queries/photo.queries';
+import { GET_PHOTOS_BY_ALBUM_ID } from '@graphQuery/queries/photo.queries';
 
 function AlbumPhotosPage() {
     const { id: albumId } = useParams();

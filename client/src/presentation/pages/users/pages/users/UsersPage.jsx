@@ -4,7 +4,7 @@ import { GET_USERS } from '@graphQuery/queries/user.queries';
 import TableLoader from '@components/table-loader/TableLoader';
 import ApiError from '@components/api-error/ApiError';
 import UserList from '@pages/users/pages/users/components/user-list/UserList';
-import { AbsoluteCommonRoutes } from '@src/presentation/router/routes.constant';
+import { AbsoluteUserRoutes } from '@src/presentation/router/routes.constant';
 
 function UsersPage() {
     const { error, loading, data } = useQuery(GET_USERS);
@@ -14,7 +14,7 @@ function UsersPage() {
             <div className="d-flex justify-content-between align-items-center">
                 <h1>Users</h1>
                 <Link
-                    to={AbsoluteCommonRoutes.CreateUser}
+                    to={AbsoluteUserRoutes.CreateUser}
                     className="btn btn-outline-primary btn-sm"
                 >
                     Create User

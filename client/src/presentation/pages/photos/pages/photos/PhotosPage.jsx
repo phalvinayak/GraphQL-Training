@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import TableLoader from '@components/table-loader/TableLoader';
 import ApiError from '@components/api-error/ApiError';
 import { AbsolutePhotoRoutes } from '@src/presentation/router/routes.constant';
-import { GET_PHOTOS } from '@src/application/graph-query/queries/photo.queries';
+import { GET_PHOTOS } from '@graphQuery/queries/photo.queries';
 import PhotoList from '@pages/photos/components/photo-list/PhotoList';
 
 function PhotosPage() {

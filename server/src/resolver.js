@@ -5,6 +5,7 @@ import commentsResolver from './comment/comments.resolver.js';
 import todosResolver from './todo/todos.resolver.js';
 import albumsResolver from './album/albums.resolver.js';
 import photosResolver from './photo/photos.resolver.js';
+import subscriptionResolvers from './subscription/subscription.resolver.js';
 
 export default mergeResolvers([
     usersResolver,
@@ -13,4 +14,5 @@ export default mergeResolvers([
     todosResolver,
     albumsResolver,
     photosResolver,
+    subscriptionResolvers,
 ]);

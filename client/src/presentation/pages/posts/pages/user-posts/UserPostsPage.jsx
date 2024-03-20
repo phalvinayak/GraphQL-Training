@@ -4,7 +4,7 @@ import TableLoader from '@components/table-loader/TableLoader';
 import ApiError from '@components/api-error/ApiError';
 import PostList from '@src/presentation/pages/posts/components/post-list/PostList';
 import { AbsolutePostRoutes } from '@src/presentation/router/routes.constant';
-import { GET_POSTS_BY_USER_ID } from '@src/application/graph-query/queries/post.queries';
+import { GET_POSTS_BY_USER_ID } from '@graphQuery/queries/post.queries';
 
 function UserPostsPage() {
     const { id: userId } = useParams();

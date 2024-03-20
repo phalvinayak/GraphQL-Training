@@ -4,7 +4,7 @@ import TableLoader from '@components/table-loader/TableLoader';
 import ApiError from '@components/api-error/ApiError';
 import { AbsoluteCommentRoutes } from '@src/presentation/router/routes.constant';
 import CommentList from '@pages/comments/components/comment-list/CommentList';
-import { GET_COMMENTS } from '@src/application/graph-query/queries/comment.queries';
+import { GET_COMMENTS } from '@graphQuery/queries/comment.queries';
 
 function CommentsPage() {
     const { error, loading, data } = useQuery(GET_COMMENTS);

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import TableLoader from '@components/table-loader/TableLoader';
 import ApiError from '@components/api-error/ApiError';
 import { AbsoluteTodoRoutes } from '@src/presentation/router/routes.constant';
-import { GET_TODOS_BY_USER_ID } from '@src/application/graph-query/queries/todo.queries';
+import { GET_TODOS_BY_USER_ID } from '@graphQuery/queries/todo.queries';
 import TodoList from '@src/presentation/pages/todos/components/todo-list/TodoList';
 import { useParams } from 'react-router-dom';
 

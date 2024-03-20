@@ -3,11 +3,8 @@ import { useCallback, useMemo } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import ApiError from '@components/api-error/ApiError';
-import {
-    GET_COMMENT,
-    GET_COMMENTS,
-} from '@src/application/graph-query/queries/comment.queries';
-import { UPDATE_COMMENT } from '@src/application/graph-query/mutations/comment.mutations';
+import { GET_COMMENT, GET_COMMENTS } from '@graphQuery/queries/comment.queries';
+import { UPDATE_COMMENT } from '@graphQuery/mutations/comment.mutations';
 import CommentForm from '@pages/comments/components/comment-form/CommentForm';
 
 function UpdateCommentPage() {

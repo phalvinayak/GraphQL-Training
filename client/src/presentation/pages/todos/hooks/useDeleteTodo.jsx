@@ -1,8 +1,8 @@
 import { useMutation } from '@apollo/client';
 import usePopup from '@library/ux-popup/hooks/usePopup';
 import { useCallback } from 'react';
-import { DELETE_TODO } from '@src/application/graph-query/mutations/todo.mutations';
-import { GET_TODOS } from '@src/application/graph-query/queries/todo.queries';
+import { DELETE_TODO } from '@graphQuery/mutations/todo.mutations';
+import { GET_TODOS } from '@graphQuery/queries/todo.queries';
 
 function useDeleteTodo({ id, onDelete }) {
     const { openPopup, closePopup } = usePopup();

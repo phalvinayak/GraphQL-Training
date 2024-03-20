@@ -1,8 +1,8 @@
 import { useMutation } from '@apollo/client';
 import usePopup from '@library/ux-popup/hooks/usePopup';
 import { useCallback } from 'react';
-import { DELETE_ALBUM } from '@src/application/graph-query/mutations/album.mutations';
-import { GET_ALBUMS } from '@src/application/graph-query/queries/album.queries';
+import { DELETE_ALBUM } from '@graphQuery/mutations/album.mutations';
+import { GET_ALBUMS } from '@graphQuery/queries/album.queries';
 
 function useDeleteAlbum({ id, onDelete }) {
     const { openPopup, closePopup } = usePopup();

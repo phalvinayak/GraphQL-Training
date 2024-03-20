@@ -7,7 +7,7 @@ import UxBackLink from '@src/presentation/common/components/ux-back-link/UxBackL
 import UxButton from '@library/ux-button/UxButton';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { GET_PHOTO } from '@src/application/graph-query/queries/photo.queries';
+import { GET_PHOTO } from '@graphQuery/queries/photo.queries';
 import useDeletePhoto from '@pages/photos/hooks/useDeletePhoto';
 import ViewPhoto from '@pages/photos/pages/view-photo/components/view-photo/ViewPhoto';
 

@@ -8,7 +8,7 @@ import UxButton from '@src/presentation/common/library/ux-button/UxButton';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ViewTodo from '@pages/todos/pages/view-todo/components/view-todo/ViewTodo';
-import { GET_TODO } from '@src/application/graph-query/queries/todo.queries';
+import { GET_TODO } from '@graphQuery/queries/todo.queries';
 import useDeleteTodo from '../../hooks/useDeleteTodo';
 
 function ViewTodoPage() {

@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import TableLoader from '@components/table-loader/TableLoader';
 import ApiError from '@components/api-error/ApiError';
 import { AbsoluteAlbumRoutes } from '@src/presentation/router/routes.constant';
-import { GET_ALBUMS_BY_USER_ID } from '@src/application/graph-query/queries/album.queries';
+import { GET_ALBUMS_BY_USER_ID } from '@graphQuery/queries/album.queries';
 import AlbumList from '../../components/album-list/AlbumList';
 
 function UserAlbumsPage() {

@@ -2,8 +2,8 @@ import UxBackLink from '@src/presentation/common/components/ux-back-link/UxBackL
 import { useCallback, useMemo } from 'react';
 import { useMutation } from '@apollo/client';
 import PostForm from '@src/presentation/pages/posts/components/post-form/PostForm';
-import { CREATE_POST } from '@src/application/graph-query/mutations/post.mutations';
-import { GET_POSTS } from '@src/application/graph-query/queries/post.queries';
+import { CREATE_POST } from '@graphQuery/mutations/post.mutations';
+import { GET_POSTS } from '@graphQuery/queries/post.queries';
 import ApiError from '@src/presentation/common/components/api-error/ApiError';
 
 function CreatePostPage() {

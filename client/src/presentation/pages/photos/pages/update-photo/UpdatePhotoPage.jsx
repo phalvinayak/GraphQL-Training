@@ -3,11 +3,8 @@ import { useCallback, useMemo } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import ApiError from '@components/api-error/ApiError';
-import {
-    GET_PHOTO,
-    GET_PHOTOS,
-} from '@src/application/graph-query/queries/photo.queries';
-import { UPDATE_PHOTO } from '@src/application/graph-query/mutations/photo.mutations';
+import { GET_PHOTO, GET_PHOTOS } from '@graphQuery/queries/photo.queries';
+import { UPDATE_PHOTO } from '@graphQuery/mutations/photo.mutations';
 import PhotoForm from '../../components/photo-form/PhotoForm';
 
 function UpdatePhotoPage() {

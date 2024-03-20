@@ -1,14 +1,12 @@
 export const AbsoluteCommonRoutes = {
     BaseUrl: '/',
-    CreateUser: '/users/create',
+    Subscription: '/subscription',
     NotFound: '/404',
 };
 
 export const CommonRoutes = {
     BaseUrl: '',
-    Users: 'users',
-    ViewUser: ':id',
-    CreateUser: 'create',
+    Subscription: 'subscription',
     NotFound: '404',
 };
 

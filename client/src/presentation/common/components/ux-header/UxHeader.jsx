@@ -32,6 +32,12 @@ function UxHeader() {
                         >
                             Home
                         </Link>
+                        <Link
+                            to={AbsoluteCommonRoutes.Subscription}
+                            className="nav-link"
+                        >
+                            Subscription
+                        </Link>
                         <NavDropdown title="Menu" id="basic-nav-dropdown">
                             <Link
                                 to={AbsoluteUserRoutes.Users}

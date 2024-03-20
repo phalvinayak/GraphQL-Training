@@ -2,11 +2,8 @@ import UxBackLink from '@src/presentation/common/components/ux-back-link/UxBackL
 import UserForm from '@pages/users/components/user-form/UserForm';
 import { useCallback, useMemo } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-import { UPDATE_USER } from '@src/application/graph-query/mutations/user.mutations';
-import {
-    GET_USER,
-    GET_USERS,
-} from '@src/application/graph-query/queries/user.queries';
+import { UPDATE_USER } from '@graphQuery/mutations/user.mutations';
+import { GET_USER, GET_USERS } from '@graphQuery/queries/user.queries';
 import { useParams } from 'react-router-dom';
 import ApiError from '@components/api-error/ApiError';
 

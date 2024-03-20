@@ -7,7 +7,7 @@ import UxBackLink from '@src/presentation/common/components/ux-back-link/UxBackL
 import UxButton from '@src/presentation/common/library/ux-button/UxButton';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { GET_ALBUM } from '@src/application/graph-query/queries/album.queries';
+import { GET_ALBUM } from '@graphQuery/queries/album.queries';
 import useDeleteAlbum from '@pages/albums/hooks/useDeleteAlbum';
 import ViewAlbum from '@pages/albums/pages/view-album/components/view-album/ViewAlbum';
 

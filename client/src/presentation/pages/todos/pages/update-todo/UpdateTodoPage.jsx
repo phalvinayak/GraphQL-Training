@@ -3,11 +3,8 @@ import { useCallback, useMemo } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import ApiError from '@components/api-error/ApiError';
-import {
-    GET_TODO,
-    GET_TODOS,
-} from '@src/application/graph-query/queries/todo.queries';
-import { UPDATE_TODO } from '@src/application/graph-query/mutations/todo.mutations';
+import { GET_TODO, GET_TODOS } from '@graphQuery/queries/todo.queries';
+import { UPDATE_TODO } from '@graphQuery/mutations/todo.mutations';
 import TodoForm from '@pages/todos/components/todo-form/TodoForm';
 
 function UpdateTodoPage() {
@@ -44,7 +41,6 @@ function UpdateTodoPage() {
 
     const onSubmit = useCallback(
         (todoFormData) => {
-            console.log(todoFormData);
             updateTodo({
                 variables: { todo: todoFormData },
             });

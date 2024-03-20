@@ -2,8 +2,8 @@ import UxBackLink from '@src/presentation/common/components/ux-back-link/UxBackL
 import { useCallback, useMemo } from 'react';
 import { useMutation } from '@apollo/client';
 import ApiError from '@src/presentation/common/components/api-error/ApiError';
-import { CREATE_COMMENT } from '@src/application/graph-query/mutations/comment.mutations';
-import { GET_COMMENTS } from '@src/application/graph-query/queries/comment.queries';
+import { CREATE_COMMENT } from '@graphQuery/mutations/comment.mutations';
+import { GET_COMMENTS } from '@graphQuery/queries/comment.queries';
 import CommentForm from '@pages/comments/components/comment-form/CommentForm';
 
 function CreateCommentPage() {

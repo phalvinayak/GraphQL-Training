@@ -2,8 +2,8 @@ import UxBackLink from '@src/presentation/common/components/ux-back-link/UxBackL
 import { useCallback, useMemo } from 'react';
 import { useMutation } from '@apollo/client';
 import ApiError from '@src/presentation/common/components/api-error/ApiError';
-import { CREATE_PHOTO } from '@src/application/graph-query/mutations/photo.mutations';
-import { GET_PHOTOS } from '@src/application/graph-query/queries/photo.queries';
+import { CREATE_PHOTO } from '@graphQuery/mutations/photo.mutations';
+import { GET_PHOTOS } from '@graphQuery/queries/photo.queries';
 import PhotoForm from '@pages/photos/components/photo-form/PhotoForm';
 
 function CreatePhotoPage() {

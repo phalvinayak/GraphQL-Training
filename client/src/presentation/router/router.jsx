@@ -41,6 +41,7 @@ import ViewPhotoPage from '@pages/photos/pages/view-photo/ViewPhotoPage';
 import AlbumPhotosPage from '@pages/photos/pages/album-photos/AlbumPhotosPage';
 import PhotosPage from '@pages/photos/pages/photos/PhotosPage';
 import HomePage from '@pages/home/HomePage';
+import SubscriptionPage from '@pages/subscription/SubscriptionPage';
 
 const router = createBrowserRouter([
     {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <HomePage />,
+            },
+            {
+                path: CommonRoutes.Subscription,
+                element: <SubscriptionPage />,
             },
             {
                 path: UserRoutes.Users,
