@@ -5,8 +5,12 @@ import ApiError from '@src/presentation/common/components/api-error/ApiError';
 import { CREATE_TODO } from '@graphQuery/mutations/todo.mutations';
 import { GET_TODOS } from '@graphQuery/queries/todo.queries';
 import TodoForm from '@pages/todos/components/todo-form/TodoForm';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { AbsoluteTodoRoutes } from '@src/presentation/router/routes.constant';
 
 function CreateTodoPage() {
+    const navigate = useNavigate();
     const initialValues = useMemo(() => {
         return {
             id: '',
@@ -21,12 +25,18 @@ function CreateTodoPage() {
     });
 
     const onSubmit = useCallback(
-        (todoFormData) => {
-            createTodo({
-                variables: { todo: todoFormData },
-            });
+        async (todoFormData) => {
+            try {
+                await createTodo({
+                    variables: { todo: todoFormData },
+                });
+                toast.success('Todo created successfully');
+                navigate(AbsoluteTodoRoutes.Todos);
+            } catch (error) {
+                toast.error('Unable to create todo');
+            }
         },
-        [createTodo]
+        [createTodo, navigate]
     );
 
     return (

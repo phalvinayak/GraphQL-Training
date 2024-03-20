@@ -13,7 +13,6 @@ const photosResolver = {
 
     Album: {
         photos(album) {
-            console.log('Album:', album.id);
             return photos.filter((photo) => photo.albumId === album.id);
         },
     },
@@ -35,7 +34,6 @@ const photosResolver = {
         },
 
         deletePhoto: (_, { id }) => {
-            console.log('delete', id);
             photos = photos.filter((photo) => photo.id != id);
             return photos;
         },

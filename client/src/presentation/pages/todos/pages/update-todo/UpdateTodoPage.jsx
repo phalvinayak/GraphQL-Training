@@ -6,8 +6,12 @@ import ApiError from '@components/api-error/ApiError';
 import { GET_TODO, GET_TODOS } from '@graphQuery/queries/todo.queries';
 import { UPDATE_TODO } from '@graphQuery/mutations/todo.mutations';
 import TodoForm from '@pages/todos/components/todo-form/TodoForm';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { AbsoluteTodoRoutes } from '@src/presentation/router/routes.constant';
 
 function UpdateTodoPage() {
+    const navigate = useNavigate();
     const { id } = useParams();
     const {
         error: loadTodoError,
@@ -40,12 +44,18 @@ function UpdateTodoPage() {
         });
 
     const onSubmit = useCallback(
-        (todoFormData) => {
-            updateTodo({
-                variables: { todo: todoFormData },
-            });
+        async (todoFormData) => {
+            try {
+                await updateTodo({
+                    variables: { todo: todoFormData },
+                });
+                toast.success('Todo updated successfully');
+                navigate(AbsoluteTodoRoutes.Todos);
+            } catch (error) {
+                toast.error('Unable to update todo');
+            }
         },
-        [updateTodo]
+        [updateTodo, navigate]
     );
 
     return (

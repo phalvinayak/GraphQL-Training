@@ -4,9 +4,18 @@ import { MdEdit, MdDeleteOutline } from 'react-icons/md';
 import { AbsolutePostRoutes } from '@src/presentation/router/routes.constant';
 import useDeletePost from '@pages/posts/hooks/useDeletePost';
 import UxButton from '@library/ux-button/UxButton';
+import { useCallback } from 'react';
+import { toast } from 'react-toastify';
 
 function PostActions({ post }) {
-    const { openDeletePostPopup, loading } = useDeletePost({ id: post.id });
+    const onDelete = useCallback(() => {
+        toast.success('Post deleted successfully');
+    }, []);
+
+    const { openDeletePostPopup, loading } = useDeletePost({
+        id: post.id,
+        onDelete,
+    });
 
     return (
         <div className="d-flex align-items-center gap-2">

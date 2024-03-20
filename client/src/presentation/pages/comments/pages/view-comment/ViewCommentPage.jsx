@@ -10,11 +10,13 @@ import { useNavigate } from 'react-router-dom';
 import { GET_COMMENT } from '@graphQuery/queries/comment.queries';
 import useDeleteComment from '@pages/comments/hooks/useDeleteComment';
 import ViewComment from '@pages/comments/pages/view-comment/components/view-comment/ViewComment';
+import { toast } from 'react-toastify';
 
 function ViewCommentPage() {
     const { id } = useParams();
     const navigate = useNavigate();
     const onDelete = useCallback(() => {
+        toast.success('Comment deleted successfully');
         navigate(AbsoluteCommentRoutes.Comments);
     }, [navigate]);
     const { error, loading, data } = useQuery(GET_COMMENT, {

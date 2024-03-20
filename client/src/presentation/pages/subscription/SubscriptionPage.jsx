@@ -7,7 +7,6 @@ function SubscriptionPage() {
     const { data, error, loading } = useSubscription(MESSAGE_SUBSCRIPTION, {
         variables: {},
         shouldResubscribe: true,
-        onSubscriptionData: (data) => console.log('new data', data),
     });
 
     return (

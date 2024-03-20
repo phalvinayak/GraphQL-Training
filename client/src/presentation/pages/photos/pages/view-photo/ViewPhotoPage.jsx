@@ -10,13 +10,17 @@ import { useNavigate } from 'react-router-dom';
 import { GET_PHOTO } from '@graphQuery/queries/photo.queries';
 import useDeletePhoto from '@pages/photos/hooks/useDeletePhoto';
 import ViewPhoto from '@pages/photos/pages/view-photo/components/view-photo/ViewPhoto';
+import { toast } from 'react-toastify';
 
 function ViewPhotoPage() {
     const { id } = useParams();
     const navigate = useNavigate();
+
     const onDelete = useCallback(() => {
+        toast.success('Photo deleted successfully');
         navigate(AbsolutePhotoRoutes.Photos);
     }, [navigate]);
+
     const { error, loading, data } = useQuery(GET_PHOTO, { variables: { id } });
     const { openDeletePhotoPopup, loading: deletePhotoLoading } =
         useDeletePhoto({ id, onDelete });

@@ -5,8 +5,12 @@ import ApiError from '@src/presentation/common/components/api-error/ApiError';
 import { CREATE_COMMENT } from '@graphQuery/mutations/comment.mutations';
 import { GET_COMMENTS } from '@graphQuery/queries/comment.queries';
 import CommentForm from '@pages/comments/components/comment-form/CommentForm';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { AbsoluteCommentRoutes } from '@src/presentation/router/routes.constant';
 
 function CreateCommentPage() {
+    const navigate = useNavigate();
     const initialValues = useMemo(() => {
         return {
             id: '',
@@ -22,12 +26,18 @@ function CreateCommentPage() {
     });
 
     const onSubmit = useCallback(
-        (commentFormData) => {
-            createComment({
-                variables: { comment: commentFormData },
-            });
+        async (commentFormData) => {
+            try {
+                await createComment({
+                    variables: { comment: commentFormData },
+                });
+                toast.success('Comment created successfully');
+                navigate(AbsoluteCommentRoutes.Comments);
+            } catch (error) {
+                toast.error('Unable to create comment');
+            }
         },
-        [createComment]
+        [createComment, navigate]
     );
 
     return (

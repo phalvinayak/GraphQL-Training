@@ -10,13 +10,17 @@ import { useNavigate } from 'react-router-dom';
 import { GET_ALBUM } from '@graphQuery/queries/album.queries';
 import useDeleteAlbum from '@pages/albums/hooks/useDeleteAlbum';
 import ViewAlbum from '@pages/albums/pages/view-album/components/view-album/ViewAlbum';
+import { toast } from 'react-toastify';
 
 function ViewAlbumPage() {
     const { id } = useParams();
     const navigate = useNavigate();
+
     const onDelete = useCallback(() => {
+        toast.success('Album deleted successfully');
         navigate(AbsoluteAlbumRoutes.Albums);
     }, [navigate]);
+
     const { error, loading, data } = useQuery(GET_ALBUM, { variables: { id } });
     const { openDeleteAlbumPopup, loading: deleteAlbumLoading } =
         useDeleteAlbum({

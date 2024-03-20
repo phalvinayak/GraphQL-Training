@@ -10,11 +10,13 @@ import UxButton from '@src/presentation/common/library/ux-button/UxButton';
 import useDeleteUser from '@pages/users/hooks/useDeleteUser';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function ViewUserPage() {
     const { id } = useParams();
     const navigate = useNavigate();
     const onDelete = useCallback(() => {
+        toast.success('User deleted successfully');
         navigate(AbsoluteUserRoutes.Users);
     }, [navigate]);
     const { error, loading, data } = useQuery(GET_USER, { variables: { id } });

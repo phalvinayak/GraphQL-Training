@@ -5,8 +5,12 @@ import PostForm from '@src/presentation/pages/posts/components/post-form/PostFor
 import { CREATE_POST } from '@graphQuery/mutations/post.mutations';
 import { GET_POSTS } from '@graphQuery/queries/post.queries';
 import ApiError from '@src/presentation/common/components/api-error/ApiError';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { AbsolutePostRoutes } from '@src/presentation/router/routes.constant';
 
 function CreatePostPage() {
+    const navigate = useNavigate();
     const initialValues = useMemo(() => {
         return {
             id: '',
@@ -21,14 +25,19 @@ function CreatePostPage() {
     });
 
     const onSubmit = useCallback(
-        (postFormData) => {
-            createPost({
-                variables: { post: postFormData },
-            });
+        async (postFormData) => {
+            try {
+                await createPost({
+                    variables: { post: postFormData },
+                });
+                toast.success('Post created successfully');
+                navigate(AbsolutePostRoutes.Posts);
+            } catch (error) {
+                toast.error('Unable to create post');
+            }
         },
-        [createPost]
+        [createPost, navigate]
     );
-    console.log(error);
 
     return (
         <div>

@@ -4,10 +4,17 @@ import { MdEdit, MdDeleteOutline } from 'react-icons/md';
 import { AbsoluteCommentRoutes } from '@src/presentation/router/routes.constant';
 import UxButton from '@library/ux-button/UxButton';
 import useDeleteComment from '@pages/comments/hooks/useDeleteComment';
+import { useCallback } from 'react';
+import { toast } from 'react-toastify';
 
 function CommentActions({ comment }) {
+    const onDelete = useCallback(() => {
+        toast.success('Comment deleted successfully');
+    }, []);
+
     const { openDeleteCommentPopup, loading } = useDeleteComment({
         id: comment.id,
+        onDelete,
     });
 
     return (

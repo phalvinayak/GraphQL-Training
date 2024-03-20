@@ -6,9 +6,14 @@ import ApiError from '@components/api-error/ApiError';
 import { GET_POST, GET_POSTS } from '@graphQuery/queries/post.queries';
 import { UPDATE_POST } from '@graphQuery/mutations/post.mutations';
 import PostForm from '@src/presentation/pages/posts/components/post-form/PostForm';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { AbsolutePostRoutes } from '@src/presentation/router/routes.constant';
 
 function UpdatePostPage() {
+    const navigate = useNavigate();
     const { id } = useParams();
+
     const {
         error: loadPostError,
         loading: isPostLoading,
@@ -40,12 +45,18 @@ function UpdatePostPage() {
         });
 
     const onSubmit = useCallback(
-        (postFormData) => {
-            updatePost({
-                variables: { post: postFormData },
-            });
+        async (postFormData) => {
+            try {
+                updatePost({
+                    variables: { post: postFormData },
+                });
+                toast.success('Post updated successfully');
+                navigate(AbsolutePostRoutes.Posts);
+            } catch (error) {
+                toast.error('Unable to update post');
+            }
         },
-        [updatePost]
+        [updatePost, navigate]
     );
 
     return (

@@ -9,12 +9,14 @@ import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ViewTodo from '@pages/todos/pages/view-todo/components/view-todo/ViewTodo';
 import { GET_TODO } from '@graphQuery/queries/todo.queries';
-import useDeleteTodo from '../../hooks/useDeleteTodo';
+import useDeleteTodo from '@pages/todos/hooks/useDeleteTodo';
+import { toast } from 'react-toastify';
 
 function ViewTodoPage() {
     const { id } = useParams();
     const navigate = useNavigate();
     const onDelete = useCallback(() => {
+        toast.success('Todo deleted successfully');
         navigate(AbsoluteTodoRoutes.Todos);
     }, [navigate]);
     const { error, loading, data } = useQuery(GET_TODO, { variables: { id } });

@@ -5,8 +5,12 @@ import ApiError from '@src/presentation/common/components/api-error/ApiError';
 import { CREATE_ALBUM } from '@graphQuery/mutations/album.mutations';
 import { GET_ALBUMS } from '@graphQuery/queries/album.queries';
 import AlbumForm from '@pages/albums/components/album-form/AlbumForm';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { AbsoluteAlbumRoutes } from '@src/presentation/router/routes.constant';
 
 function CreateAlbumPage() {
+    const navigate = useNavigate();
     const initialValues = useMemo(() => {
         return {
             id: '',
@@ -20,14 +24,19 @@ function CreateAlbumPage() {
     });
 
     const onSubmit = useCallback(
-        (albumFormData) => {
-            createAlbum({
-                variables: { album: albumFormData },
-            });
+        async (albumFormData) => {
+            try {
+                await createAlbum({
+                    variables: { album: albumFormData },
+                });
+                toast.success('Album created successfully');
+                navigate(AbsoluteAlbumRoutes.Albums);
+            } catch (error) {
+                toast.error('Unable to create album');
+            }
         },
-        [createAlbum]
+        [createAlbum, navigate]
     );
-    console.log(error);
 
     return (
         <div>

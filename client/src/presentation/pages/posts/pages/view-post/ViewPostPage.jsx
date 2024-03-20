@@ -10,11 +10,13 @@ import useDeletePost from '@pages/posts/hooks/useDeletePost';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ViewPost from '@pages/posts/pages/view-post/components/view-post/ViewPost';
+import { toast } from 'react-toastify';
 
 function ViewUserPage() {
     const { id } = useParams();
     const navigate = useNavigate();
     const onDelete = useCallback(() => {
+        toast.success('Post deleted successfully');
         navigate(AbsolutePostRoutes.Posts);
     }, [navigate]);
     const { error, loading, data } = useQuery(GET_POST, { variables: { id } });

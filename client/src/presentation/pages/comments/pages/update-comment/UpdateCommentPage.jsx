@@ -6,8 +6,12 @@ import ApiError from '@components/api-error/ApiError';
 import { GET_COMMENT, GET_COMMENTS } from '@graphQuery/queries/comment.queries';
 import { UPDATE_COMMENT } from '@graphQuery/mutations/comment.mutations';
 import CommentForm from '@pages/comments/components/comment-form/CommentForm';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { AbsoluteCommentRoutes } from '@src/presentation/router/routes.constant';
 
 function UpdateCommentPage() {
+    const navigate = useNavigate();
     const { id } = useParams();
     const {
         error: loadCommentError,
@@ -44,12 +48,18 @@ function UpdateCommentPage() {
     });
 
     const onSubmit = useCallback(
-        (commentFormData) => {
-            updateComment({
-                variables: { comment: commentFormData },
-            });
+        async (commentFormData) => {
+            try {
+                await updateComment({
+                    variables: { comment: commentFormData },
+                });
+                toast.success('Comment updated successfully');
+                navigate(AbsoluteCommentRoutes.Comments);
+            } catch (error) {
+                toast.error('Unable to update comment');
+            }
         },
-        [updateComment]
+        [updateComment, navigate]
     );
 
     return (

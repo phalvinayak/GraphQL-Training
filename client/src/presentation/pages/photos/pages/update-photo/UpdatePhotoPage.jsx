@@ -6,8 +6,12 @@ import ApiError from '@components/api-error/ApiError';
 import { GET_PHOTO, GET_PHOTOS } from '@graphQuery/queries/photo.queries';
 import { UPDATE_PHOTO } from '@graphQuery/mutations/photo.mutations';
 import PhotoForm from '../../components/photo-form/PhotoForm';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { AbsolutePhotoRoutes } from '@src/presentation/router/routes.constant';
 
 function UpdatePhotoPage() {
+    const navigate = useNavigate();
     const { id } = useParams();
     const {
         error: loadPhotoError,
@@ -44,12 +48,18 @@ function UpdatePhotoPage() {
     });
 
     const onSubmit = useCallback(
-        (photoFormData) => {
-            updatePhoto({
-                variables: { photo: photoFormData },
-            });
+        async (photoFormData) => {
+            try {
+                await updatePhoto({
+                    variables: { photo: photoFormData },
+                });
+                toast.success('Photo updated successfully');
+                navigate(AbsolutePhotoRoutes.Photos);
+            } catch (error) {
+                toast.error('Unable to update photo');
+            }
         },
-        [updatePhoto]
+        [updatePhoto, navigate]
     );
 
     return (

@@ -10,8 +10,6 @@ const typeDefs = loadSchemaSync('./**/*.graphql', {
     loaders: [new GraphQLFileLoader()],
 });
 
-// console.log(printSchema(typeDefs));
-
 const server = new ApolloServer({
     typeDefs,
     resolvers,

@@ -13,7 +13,6 @@ const postsResolver = {
 
     User: {
         posts(user) {
-            console.log('....userId :' + user.id);
             return posts.filter((post) => post.userId === user.id);
         },
     },

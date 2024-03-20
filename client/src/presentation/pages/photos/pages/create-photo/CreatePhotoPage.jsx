@@ -5,8 +5,12 @@ import ApiError from '@src/presentation/common/components/api-error/ApiError';
 import { CREATE_PHOTO } from '@graphQuery/mutations/photo.mutations';
 import { GET_PHOTOS } from '@graphQuery/queries/photo.queries';
 import PhotoForm from '@pages/photos/components/photo-form/PhotoForm';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { AbsolutePhotoRoutes } from '@src/presentation/router/routes.constant';
 
 function CreatePhotoPage() {
+    const navigate = useNavigate();
     const initialValues = useMemo(() => {
         return {
             id: '',
@@ -22,14 +26,19 @@ function CreatePhotoPage() {
     });
 
     const onSubmit = useCallback(
-        (photoFormData) => {
-            createPhoto({
-                variables: { photo: photoFormData },
-            });
+        async (photoFormData) => {
+            try {
+                await createPhoto({
+                    variables: { photo: photoFormData },
+                });
+                toast.success('Photo created successfully');
+                navigate(AbsolutePhotoRoutes.Photos);
+            } catch (error) {
+                toast.error('Unable to create photo');
+            }
         },
-        [createPhoto]
+        [createPhoto, navigate]
     );
-    console.log(error);
 
     return (
         <div>

@@ -29,7 +29,6 @@ const usersResolver = {
         },
 
         deleteUser: (_, { id }) => {
-            console.log('delete', id);
             users = users.filter((u) => u.id != id);
             return users;
         },

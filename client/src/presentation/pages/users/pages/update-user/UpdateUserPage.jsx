@@ -6,8 +6,12 @@ import { UPDATE_USER } from '@graphQuery/mutations/user.mutations';
 import { GET_USER, GET_USERS } from '@graphQuery/queries/user.queries';
 import { useParams } from 'react-router-dom';
 import ApiError from '@components/api-error/ApiError';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { AbsoluteUserRoutes } from '@src/presentation/router/routes.constant';
 
 function UpdateUserPage() {
+    const navigate = useNavigate();
     const { id } = useParams();
     const {
         error: loadUserError,
@@ -38,12 +42,18 @@ function UpdateUserPage() {
         });
 
     const onSubmit = useCallback(
-        (userFormData) => {
-            updateUser({
-                variables: userFormData,
-            });
+        async (userFormData) => {
+            try {
+                await updateUser({
+                    variables: userFormData,
+                });
+                toast.success('User updated successfully');
+                navigate(AbsoluteUserRoutes.Users);
+            } catch (error) {
+                toast.error('Unable to update user');
+            }
         },
-        [updateUser]
+        [updateUser, navigate]
     );
 
     return (

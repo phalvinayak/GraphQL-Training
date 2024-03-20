@@ -4,10 +4,17 @@ import { MdEdit, MdDeleteOutline } from 'react-icons/md';
 import { AbsoluteTodoRoutes } from '@src/presentation/router/routes.constant';
 import UxButton from '@library/ux-button/UxButton';
 import useDeleteTodo from '@src/presentation/pages/todos/hooks/useDeleteTodo';
+import { useCallback } from 'react';
+import { toast } from 'react-toastify';
 
 function TodoActions({ todo }) {
+    const onDelete = useCallback(() => {
+        toast.success('Todo deleted successfully');
+    }, []);
+
     const { openDeleteTodoPopup, loading } = useDeleteTodo({
         id: todo.id,
+        onDelete,
     });
 
     return (
